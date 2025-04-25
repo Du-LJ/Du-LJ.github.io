@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>游戏学习2——从《赛博朋克2077》看任务设计 | Lynch's blog</title><meta name="author" content="Lynch Du,569806332@qq.com"><meta name="copyright" content="Lynch Du"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="作为CDPR最新作品，《赛博朋克：2077》从宣传开始，就一改波兰蠢驴之前的作风，大张旗鼓的将自己游戏的特性不断地向玩家透传。 上线后，层出不穷的bug，中后期重复的游戏体验，载具驾驶的稀烂手感，让CDPR跌下神坛（宫崎英高：怎么 还有我的事），同时也让玩家们知道了宣传诈骗，可谓是2023年反诈宣传第一枪。 不过，赛博朋克2077作为曾经做出《巫师》系列的波兰蠢驴的作品，自然是有可圈可点之处的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="游戏学习2——从《赛博朋克2077》看任务设计">
+<meta property="og:url" content="https://du-lj.github.io/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A02/index.html">
+<meta property="og:site_name" content="Lynch&#39;s blog">
+<meta property="og:description" content="作为CDPR最新作品，《赛博朋克：2077》从宣传开始，就一改波兰蠢驴之前的作风，大张旗鼓的将自己游戏的特性不断地向玩家透传。 上线后，层出不穷的bug，中后期重复的游戏体验，载具驾驶的稀烂手感，让CDPR跌下神坛（宫崎英高：怎么 还有我的事），同时也让玩家们知道了宣传诈骗，可谓是2023年反诈宣传第一枪。 不过，赛博朋克2077作为曾经做出《巫师》系列的波兰蠢驴的作品，自然是有可圈可点之处的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Du-LJ/blogImg@main/undefined20250425143032255.jpg">
+<meta property="article:published_time" content="2025-04-24T12:52:00.000Z">
+<meta property="article:modified_time" content="2025-04-25T07:41:09.599Z">
+<meta property="article:author" content="Lynch Du">
+<meta property="article:tag" content="3A游戏">
+<meta property="article:tag" content="角色扮演">
+<meta property="article:tag" content="任务设计">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Du-LJ/blogImg@main/undefined20250425143032255.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "游戏学习2——从《赛博朋克2077》看任务设计",
+  "url": "https://du-lj.github.io/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A02/",
+  "image": "https://cdn.jsdelivr.net/gh/Du-LJ/blogImg@main/undefined20250425143032255.jpg",
+  "datePublished": "2025-04-24T12:52:00.000Z",
+  "dateModified": "2025-04-25T07:41:09.599Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Lynch Du",
+      "url": "https://du-lj.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://du-lj.github.io/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A02/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '游戏学习2——从《赛博朋克2077》看任务设计',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/Du-LJ/blogImg@main/undefined20250425143032255.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Lynch's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">游戏学习2——从《赛博朋克2077》看任务设计</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">游戏学习2——从《赛博朋克2077》看任务设计</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-24T12:52:00.000Z" title="发表于 2025-04-24 20:52:00">2025-04-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-25T07:41:09.599Z" title="更新于 2025-04-25 15:41:09">2025-04-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%B8%E6%88%8F%E6%8B%86%E8%A7%A3/">游戏拆解</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><meta name="referrer" content="no-referrer"/>
+
+<p>作为CDPR最新作品，《赛博朋克：2077》从宣传开始，就一改波兰蠢驴之前的作风，大张旗鼓的将自己游戏的特性不断地向玩家透传。</p>
+<p>上线后，层出不穷的bug，中后期重复的游戏体验，载具驾驶的稀烂手感，让CDPR跌下神坛<del>（宫崎英高：怎么 还有我的事）</del>，同时也让玩家们知道了宣传诈骗，可谓是2023年反诈宣传第一枪。</p>
+<p>不过，赛博朋克2077作为曾经做出《巫师》系列的波兰蠢驴的作品，自然是有可圈可点之处的，今天我想从几个体验感爆棚的任务，谈谈任务设计对于游戏而言的影响，对于玩家的体感又有怎么样的不同。</p>
+<p><img src="https://gitee.com/lynch-du/blogimg/raw/master/20250424215521925.jpg"></p>
+<h1 id="扬名立万"><a href="#扬名立万" class="headerlink" title="扬名立万"></a>扬名立万</h1><p>开幕选择出身后，经过几个重要npc的引入，一段快节奏的蒙太奇后，2077将夜之城的残酷一面在扬名立万这个任务中展现了出来。</p>
+<p>在这个任务中，展现了CDPR强大的任务设计能力，在其中的拿货任务中，回环式的任务路径让玩家能够自己选择任务进程方式，也能够通过不同的选择影响之后的游戏过程，简要来说，拿货任务的选择大概分为以下几个分支：</p>
+<ul>
+<li><strong>关键分歧点1</strong>：是否与斯托特见面<ul>
+<li>是：将在后续开启军用科技相关剧情</li>
+<li><strong>关键分歧点2</strong>：是否接受斯托特提供的芯片<ul>
+<li>是：可引向关键分歧点3<ul>
+<li><strong>关键分歧点3</strong>：是否破解芯片<ul>
+<li>是：芯片植入了黑客程序，将会破坏漩涡帮的系统，导致与漩涡帮开战，直到任务结尾。</li>
+<li>否：在交易时与漩涡帮老大交流，可以与漩涡帮一起对抗军用科技，直到任务结尾。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>否，和军用科技开战，拿到机器人“小平头”之后斯托特死亡。</li>
+</ul>
+</li>
+<li>否：直接与杰克进入食品工厂，引入关键分歧点4.</li>
+<li><strong>关键分歧点4</strong>：是否直接开战（无双）进入漩涡帮内部。<ul>
+<li>是：直接战斗至任务结束。</li>
+<li>否：进入谈判，引向关键分歧点5.</li>
+</ul>
+</li>
+<li><strong>关键分歧点5</strong>：是否干掉罗伊斯（漩涡帮老大）<ul>
+<li>是：与漩涡帮开战，直到任务结束。</li>
+<li>否：用自己的钱购买，和平解决，直到任务结束。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/lynch-du/blogimg/raw/master/20250425150219024.jpg"></p>
+<p>可以看到，如此多的任务分支，虽然最终目的都是为了拿到机器人“小平头”，但玩家在游玩过程中可以通过自己的选择引向不同的后果，但在如此多分歧点的选择下，最后的任务结果也只有：拿到小平头，斯托特死亡；拿到小平头，斯托特未死亡两种。</p>
+<p>在游玩这个任务的过程中，玩家即是V，做出的每一个决定都有可能影响到后续一系列的走向（哪怕结局只有两种），玩家也会认为，是我的决定导致的这个结果。如果2077后续的任务设计也能够保持如此这般的复杂程度，如此精妙的回转设计，那我相信2077一定不会有后面的口碑崩塌。</p>
+<p>抛开后续的话题不谈，CDPR在扬名立万这个任务当中的一系列设计，能够看出其野心：让玩家在设计好的路线中不断发现惊喜，让任务实现的路径变成了“卧槽这也可以”，在回环式任务设计上，拿货任务是非常成功的。</p>
+<h1 id="偷货-我心如火"><a href="#偷货-我心如火" class="headerlink" title="偷货&amp;我心如火"></a>偷货&amp;我心如火</h1><p>完成拿货任务之后的一个小剧情，杰克和V来到了来生酒吧，面见夜之城最厉害的中间人——罗格，接到了一个让“小人物”变成“夜之城传奇”的任务，偷货。</p>
+<p>这个任务的设计和之前的夸张风格不同，从前期平静的引入各种概念，玩家已经对夜之城混乱的、公司掌权的现状有了一定的了解，而偷货这个翻译也非常好。从谁那里偷？为什么要偷？偷什么东西？一个·优秀的游戏从任务名称上就能让玩家引入非非，而CDPR也确实通过NPC的介绍，一一解答了玩家的这几个问题。</p>
+<blockquote>
+<p>[!IMPORTANT]</p>
+<p>关于游戏角色之间的对话，作为CDPR擅长的技巧，能够留下无数的钩子，让玩家回味无穷。<del>（“传奇”的酒单）</del></p>
+</blockquote>
+<p>对抗公司！在绀碧大厦中，玩家与杰克伪装进入大厦顶层（小岛秀夫友情客串），一路上，公司员工的牛马气质，面对客户的点头哈腰，进入危险区域时的配乐，让玩家沉浸感越发强烈。面对如此庞然大物，真的能够完成既定的任务，偷走一块小小的芯片，然后溜之大吉吗？</p>
+<p>小平头接入后，实现了一个优秀的call back。玩家在拿货任务中已经见识到了小平头的强大之处，能够在后续的任务过程中享受之前任务准备带来的优势，是游戏角色成长性的一个重要体现，也是提升玩家沉浸感的一个重要指标。</p>
+<p>在潜入机房的路上，有很多剧情的补充部分，能够通过NPC之间的对话引出，CDPR在正面、侧面叙述故事的能力已经不需要再证明，而这也是黑客流能力体现最集中的一段：兵不血刃就能完成任务目标。</p>
+<p>就在杰克和V拿到Relic芯片后，荒坂公司的老板荒坂濑宣回到了办公室，躲在柱子里的一段剧情，让当时的我心脏怦怦跳，配乐、氛围、再赛博朋克世界观下的霓虹灯映照，让我几乎喘不过气来。这段剧情是我坚持游玩赛博朋克的理由，</p>
+<p>刺激的剧情过后，玩家终于完成了任务的目标，成功的坐上了曼德拉专车。</p>
+<p><img src="https://gitee.com/lynch-du/blogimg/raw/master/20250425151930642.jpg"></p>
+<p>CDPR在控制剧情的起承转合上，有无穷的技巧，杰克之死是大多数玩家都没有预料到的，这也再次点明了夜之城——或者说赛博朋克2077的世界是一个无序、混乱的世界。与你出生入死的兄弟并非刀枪不入，上一秒还在枪林弹雨中大声呼喊，下一秒可能就在出租车上长眠。</p>
+<p>玩家从极致的紧张——机制的刺激——再到极致的悲伤，这个过程的节奏转换、剧情承接，是我在之前的角色扮演类游戏中未曾体验过的。得益于第一人称视角模式，V所经历的一切被完全的展现在玩家面前，无论是残酷的、声色犬马的，夜之城也是，无论肮脏还是高雅。</p>
+<p>逃出绀碧大厦后，玩家可以选择走支线任务以悼念我们的好友Jack，这时，来到来生酒吧，可以留下杰克最爱的配方。</p>
+<p>回归正谈，拿到Relic芯片之后的黑吃黑、死而复生剧情一笔带过，视角转向强尼·银手。任务进入我心如火阶段。玩家被粗暴的抽离V的视角，转向了一个满嘴粗口，与罗格等一系列传奇似乎很熟悉的角色身上。而且一上来就是告别演唱会之后的直升机专机，一段畅快的割草剧情后，玩家也开始慢慢了解，这就是2077的另一个重要角色-夜之城的传奇之一-强尼·银手。一个桀骜不驯的吉他手，一个彻底的革命主义者，<del>一个写出了pon pon shit的疯子。</del></p>
+<p>此时，玩家已经重走了一遍荒坂大厦，完成了上传病毒目标之后，强尼被本作的boss——重锤拦截，一段播片之后，引向了我认为2077最戏剧化的一个任务。</p>
+<h1 id="黑梦"><a href="#黑梦" class="headerlink" title="黑梦"></a>黑梦</h1><p>初次玩到这里时，甚至这个任务已经完全结束，我也没感觉到遇到了bug，因为任务本身就叫“黑梦”，所以我遇到屏幕都是黑的也很正常吧？在黑屏期间，NPC的指引和显示在屏幕上的黄色感叹号给了我继续游玩的指引。CDPR可能也没想到这么一个恶性bug居然能够带来如此好的效果。</p>
+<p>黑梦剧情上并没有多少内容，大概是说明了Relic芯片已经和V合为一体，在V的意识中出现了强尼的身影，同时也能够引出之后的剧情。</p>
+<p>在这里，我想与大家讨论的是，关于一些奇怪的“巧合”所带来的游戏体验感的提升。</p>
+<p><img src="https://gitee.com/lynch-du/blogimg/raw/master/20250425153511283.jpg"></p>
+<p>整个第一幕中，我认为剧情最为紧凑、最为精彩的部分，就是从拿货开始起引入回转任务设计，用高沉浸感的潜入任务调动玩家情绪，再峰回路转到日常剧情。如果2077每个章节都能够保持这样的叙事结构，能够有这类似的精妙设计，那么即使再多“黑梦”也不会影响玩家的游玩体验，2077也不会落得诈骗的口碑。</p>
+<p>起承转合的设计，在拿货到黑梦整个游戏流程中被CDPR运用得十分纯熟。而对于玩家而言，高保持度的心流状态是很难持续很久的，波兰蠢驴也做到了用大起大落来承接玩家退出的心流状态。让一个又一个信息以可接受的方式输入玩家的游玩过程中，这种设计理念是我认为RPG游戏都应该借鉴学习的。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>2077总体而言，是一个“防退款”的最佳案例。几乎游戏后半段的游玩体验，都可以被前两个小时覆盖，在前两个小时中，CDPR用一如既往的叙事技巧，精妙的内容编排设计，让玩家感觉真的身处夜之城中，成为了一个刀口舔血的雇佣兵。瑕不掩瑜，如果2077没有搞过度的宣发，我认为它仍是一款游戏任务设计巅峰的游戏。</p>
+<p>（狗镇DLC发布后，似乎有口碑的回升，不过还没有品鉴完，或许有一天会更新相关体验）</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://du-lj.github.io">Lynch Du</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://du-lj.github.io/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A02/">https://du-lj.github.io/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A02/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://du-lj.github.io" target="_blank">Lynch's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/3A%E6%B8%B8%E6%88%8F/">3A游戏</a><a class="post-meta__tags" href="/tags/%E8%A7%92%E8%89%B2%E6%89%AE%E6%BC%94/">角色扮演</a><a class="post-meta__tags" href="/tags/%E4%BB%BB%E5%8A%A1%E8%AE%BE%E8%AE%A1/">任务设计</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Du-LJ/blogImg@main/undefined20250425143032255.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A01/" title="游戏学习1——从《骰子浪游者》看卡牌类肉鸽来去"><img class="cover" src="https://gitee.com/lynch-du/blogimg/raw/master/20250424172632351.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">游戏学习1——从《骰子浪游者》看卡牌类肉鸽来去</div></div><div class="info-2"><div class="info-item-1">  最近迷上了一款国内制作者发行的游戏——《骰子浪游者》，表面看来，又是一个想蹭蹭杀戮尖塔热度的愣头青制作者的开山之作。 但退款前两个小时的游玩，让我完全改变了想法。  游戏简介 2023年9月首次公开亮相：在东京电玩展（TGS）上，Gamera Games 公布了由超厚皮猪猪工作室开发的《骰子浪游者》，核心玩法首次曝光，展示了通过骰子修改游戏内数值（如敌人血量、卡牌效果）的机制，以及肉鸽卡牌构筑的框架。...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Lynch Du</div><div class="author-info-description">记录我的Everything</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Du-LJ/"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到杜灵杰的博客，这里会做生活、学习的记录。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AC%E5%90%8D%E7%AB%8B%E4%B8%87"><span class="toc-number">1.</span> <span class="toc-text">扬名立万</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%81%B7%E8%B4%A7-%E6%88%91%E5%BF%83%E5%A6%82%E7%81%AB"><span class="toc-number">2.</span> <span class="toc-text">偷货&amp;我心如火</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%BB%91%E6%A2%A6"><span class="toc-number">3.</span> <span class="toc-text">黑梦</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A02/" title="游戏学习2——从《赛博朋克2077》看任务设计"><img src="https://cdn.jsdelivr.net/gh/Du-LJ/blogImg@main/undefined20250425143032255.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="游戏学习2——从《赛博朋克2077》看任务设计"/></a><div class="content"><a class="title" href="/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A02/" title="游戏学习2——从《赛博朋克2077》看任务设计">游戏学习2——从《赛博朋克2077》看任务设计</a><time datetime="2025-04-24T12:52:00.000Z" title="发表于 2025-04-24 20:52:00">2025-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A01/" title="游戏学习1——从《骰子浪游者》看卡牌类肉鸽来去"><img src="https://gitee.com/lynch-du/blogimg/raw/master/20250424172632351.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="游戏学习1——从《骰子浪游者》看卡牌类肉鸽来去"/></a><div class="content"><a class="title" href="/2025/04/24/%E6%B8%B8%E6%88%8F%E5%AD%A6%E4%B9%A01/" title="游戏学习1——从《骰子浪游者》看卡牌类肉鸽来去">游戏学习1——从《骰子浪游者》看卡牌类肉鸽来去</a><time datetime="2025-04-24T10:54:51.300Z" title="发表于 2025-04-24 18:54:51">2025-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/24/%E4%B8%AA%E4%BA%BA%E6%83%85%E5%86%B5/" title="个人情况"><img src="https://gitee.com/lynch-du/blogimg/raw/master/20250424170326096.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人情况"/></a><div class="content"><a class="title" href="/2025/04/24/%E4%B8%AA%E4%BA%BA%E6%83%85%E5%86%B5/" title="个人情况">个人情况</a><time datetime="2025-04-24T08:55:00.000Z" title="发表于 2025-04-24 16:55:00">2025-04-24</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/Du-LJ/blogImg@main/undefined20250425143032255.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By Lynch Du</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
